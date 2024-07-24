@@ -1,0 +1,81 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Dependency directories
+node_modules/
+
+# Build directories
+dist/
+build/
+
+# IDE specific files
+.vscode/
+.idea/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.swp
+*.bak
+*.orig
+*.save
+
+# Compiled files
+*.out
+*.class
+*.pyc
+*.pyo
+*.exe
+*.dll
+*.so
+*.o
+*.a
+*.lib
+*.obj
+*.lo
+*.la
+*.class
+*.jar
+*.war
+*.ear
+*.gem
+*.deb
+*.rpm
+*.dmg
+*.pkg
+*.msi
+*.msp
+*.mst
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Coverage reports
+coverage/
+*.lcov
+
+# Miscellaneous
+*.lock
+*.log
+*.gz
+*.zip
+*.tar
+*.tgz
+*.rar
+*.7z
+*.bak
+*.backup
+*.swp
+*.swo
+*.tmp
+*.temp
+*.pid
+*.seed
+*.pid.lock
