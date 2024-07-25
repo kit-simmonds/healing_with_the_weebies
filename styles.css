@@ -4,6 +4,8 @@ body {
     font-family: 'Uncial Antiqua', Arial, sans-serif;
     text-align: center;
     margin: 20px;
+    background: url('images/background_jwst.png') no-repeat center center fixed;
+    background-size: cover;
 }
 
 #pageTitle {
@@ -17,7 +19,7 @@ body {
     background-size: 200% 200%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: shimmer 50s linear infinite; /* Increased duration to 6s */
+    animation: shimmer 20s linear infinite; /* Increased duration to 6s */
 }
 
 @keyframes shimmer {
@@ -108,4 +110,5 @@ body {
     margin-top: 20px;
     opacity: 0; /* Initially hidden */
     transition: opacity 1s;
+    color: white;
 }
