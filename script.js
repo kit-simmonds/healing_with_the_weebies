@@ -10,10 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const cardName = document.getElementById('cardName');
     const cardDescription = document.getElementById('cardDescription');
 
-    let isImageRevealed = false;
-    let isNameRevealed = false;
-    let isDescriptionRevealed = false;
-
     revealButton.addEventListener('click', () => {
         const randomIndex = Math.floor(Math.random() * cards.length);
         const card = cards[randomIndex];
@@ -28,25 +24,16 @@ document.addEventListener('DOMContentLoaded', () => {
         cardName.textContent = card.name;
         cardDescription.textContent = card.description;
 
-        // Reveal image first
-        if (!isImageRevealed) {
-            cardImage.style.opacity = 1;
-            isImageRevealed = true;
+        // Show image and then reveal attributes
+        cardImage.style.display = 'block'; // Make the image visible
+        setTimeout(() => {
+            cardImage.style.opacity = 1; // Reveal image
             setTimeout(() => {
-                // Reveal name after image
-                cardName.style.opacity = 1;
-                isNameRevealed = true;
+                cardName.style.opacity = 1; // Reveal name
                 setTimeout(() => {
-                    // Reveal description after name
-                    cardDescription.style.opacity = 1;
-                    isDescriptionRevealed = true;
+                    cardDescription.style.opacity = 1; // Reveal description
                 }, 1000); // Adjust delay as needed
             }, 1000); // Adjust delay as needed
-        } else {
-            // Reset the reveal states and perform the reveal again
-            isImageRevealed = false;
-            isNameRevealed = false;
-            isDescriptionRevealed = false;
-        }
+        }, 100); // Small delay to ensure the image starts to show
     });
 });
