@@ -28,6 +28,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const cardAffirmation = document.getElementById('cardAffirmation');
     const affirmationContainer = document.getElementById('affirmationContainer');
 
+    // Fade-in effect for the button on page load
+    setTimeout(() => {
+        revealButton.classList.add('fade-in');
+    }, 500); // Adjust delay as needed
+
     revealButton.addEventListener('click', () => {
         const randomIndex = Math.floor(Math.random() * cards.length);
         const selectedCard = cards[randomIndex];
@@ -70,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                 affirmationContainer.style.opacity = 1; // Fade in the affirmation container
                             }, 20000); // Delay before showing the affirmation
                         }, 1000); // Adjust delay as needed
-                    }, 5000); // Adjust delay as needed
+                    }, 20000); // Adjust delay as needed
                 }, 1500); // Adjust delay as needed
             }, 500); // Small delay to ensure the display property is set before changing opacity
         }, 500); // Small delay to ensure the button is hidden first
