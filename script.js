@@ -18,35 +18,38 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
 
     const revealButton = document.getElementById('revealButton');
+    const card = document.getElementById('card');
     const cardImage = document.getElementById('cardImage');
     const cardName = document.getElementById('cardName');
     const cardDescription = document.getElementById('cardDescription');
 
     revealButton.addEventListener('click', () => {
         const randomIndex = Math.floor(Math.random() * cards.length);
-        const card = cards[randomIndex];
+        const selectedCard = cards[randomIndex];
 
-        // Hide the button and set up the image and text
+        // Update the card content
+        cardImage.src = selectedCard.image;
+        cardName.textContent = selectedCard.name;
+        cardDescription.textContent = selectedCard.description;
+
+        // Hide the button and reveal the card front
         revealButton.style.opacity = 0;
         cardImage.style.opacity = 0;
         cardName.style.opacity = 0;
         cardDescription.style.opacity = 0;
 
-        // Update the card content
-        cardImage.src = card.image;
-        cardName.textContent = card.name;
-        cardDescription.textContent = card.description;
-
-        // Reveal the image and then the text
         setTimeout(() => {
             revealButton.style.display = 'none'; // Hide the button
-            cardImage.style.display = 'block'; // Show the image container
+            cardImage.style.display = 'block'; // Show the image
             setTimeout(() => {
                 cardImage.style.opacity = 1; // Fade in the image
                 setTimeout(() => {
                     cardName.style.opacity = 1; // Fade in the name
                     setTimeout(() => {
-                        cardDescription.style.opacity = 1; // Fade in the description
+                        card.classList.add('flipped'); // Flip the card to reveal the description
+                        setTimeout(() => {
+                            cardDescription.style.opacity = 1; // Fade in the description
+                        }, 1000); // Adjust delay as needed
                     }, 1000); // Adjust delay as needed
                 }, 1000); // Adjust delay as needed
             }, 100); // Small delay to ensure the display property is set before changing opacity

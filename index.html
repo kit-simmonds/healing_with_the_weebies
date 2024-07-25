@@ -9,12 +9,16 @@
 <body>
     <h1 id="pageTitle">Healing with the Weebies</h1>
     <div id="cardContainer">
-        <div class="image-wrapper" id="imageWrapper">
-            <button id="revealButton">Reveal a Weebie</button>
-            <img id="cardImage" src="" alt="Card Image">
-            <h2 id="cardName"></h2>
+        <div class="card" id="card">
+            <div class="card-face card-front">
+                <button id="revealButton">Reveal a Weebie</button>
+                <img id="cardImage" src="" alt="Card Image">
+                <h2 id="cardName"></h2>
+            </div>
+            <div class="card-face card-back">
+                <p id="cardDescription"></p>
+            </div>
         </div>
-        <p id="cardDescription" style="opacity: 0;"></p>
     </div>
     <audio id="backgroundMusic" src="heal.mp3" loop></audio>
     <script>
