@@ -4,8 +4,9 @@ body {
     font-family: 'Uncial Antiqua', Arial, sans-serif;
     text-align: center;
     margin: 20px;
-    background: url('images/background_jwst.png') no-repeat center center fixed;
-    background-size: cover;
+    /* background: url('images/background_jwst.png') no-repeat center center fixed;
+    background-size: cover; */
+    background: linear-gradient(to bottom, white, rgb(242, 19, 186))
 }
 
 #pageTitle {
@@ -38,7 +39,7 @@ body {
     font-family: 'Uncial Antiqua', Arial, sans-serif;
     font-size: 16px;
     cursor: pointer;
-    background: linear-gradient(135deg, #6e45e2, #88d3ce); /* Gradient background */
+    background: linear-gradient(135deg, #e245c3, #88d3ce); /* Gradient background */
     border: none;
     border-radius: 10px;
     color: #fff;
