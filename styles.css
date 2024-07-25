@@ -81,7 +81,13 @@ body {
     transform: rotateY(180deg);
     padding: 20px;
     color: rgb(255, 0, 166);
-    font-size: 24px;
+    font-size: 18px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    overflow: hidden; /* Ensure no scrollbars */
 }
 
 #revealButton {
@@ -135,4 +141,8 @@ body {
     opacity: 0;
     transition: opacity 1s;
     color: rgb(255, 0, 166);
+    padding: 20px;
+    font-size: 18px;
+    max-height: 100%;
+    box-sizing: border-box;
 }

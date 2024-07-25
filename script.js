@@ -32,6 +32,16 @@ document.addEventListener('DOMContentLoaded', () => {
         cardName.textContent = selectedCard.name;
         cardDescription.textContent = selectedCard.description;
 
+        // Adjust font size to fit the description
+        let fontSize = 18;
+        cardDescription.style.fontSize = `${fontSize}px`;
+        cardDescription.style.opacity = 1;
+
+        while (cardDescription.scrollHeight > cardDescription.clientHeight && fontSize > 10) {
+            fontSize--;
+            cardDescription.style.fontSize = `${fontSize}px`;
+        }
+
         // Hide the button and reveal the card front
         revealButton.style.opacity = 0;
         cardImage.style.opacity = 0;
