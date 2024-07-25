@@ -4,19 +4,19 @@ document.addEventListener('DOMContentLoaded', () => {
             name: 'Balance', 
             image: 'images/balance.png', 
             description: 'Balance represents the equilibrium between opposing forces. It signifies the importance of finding a harmonious middle ground in all aspects of life. Whether it\'s work and play, rest and activity, or giving and receiving, balance ensures that all elements coexist peacefully. This card encourages you to seek stability and avoid extremes.',
-            affirmation: 'I find harmony and balance in all aspects of my life.'
+            affirmation: '\"I find harmony and balance in all aspects of my life.\"'
         },
         { 
             name: 'Harmony', 
             image: 'images/harmony.png', 
             description: 'Harmony symbolizes the blending of diverse elements to create a pleasing and cohesive whole. It speaks to the beauty of unity and cooperation, whether in relationships, work, or personal endeavors. This card reminds you to cultivate peaceful interactions and appreciate the symphony created when different parts come together in perfect accord.',
-            affirmation: 'I create harmony and peace in my relationships.'
+            affirmation: '\"I create harmony and peace in my relationships.\"'
         },
         { 
             name: 'Courage', 
             image: 'images/courage.png', 
             description: 'Courage is the strength to face fears and overcome obstacles, even when the outcome is uncertain. It represents the inner fortitude required to take risks and stand up for what you believe in. This card encourages you to embrace bravery in your challenges and forge ahead with confidence.',
-            affirmation: 'I have the courage to face my fears and move forward confidently.'
+            affirmation: '\"I have the courage to face my fears and move forward confidently.\"'
         }
     ];
 
@@ -27,6 +27,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const cardDescription = document.getElementById('cardDescription');
     const cardAffirmation = document.getElementById('cardAffirmation');
     const affirmationContainer = document.getElementById('affirmationContainer');
+
+    // Function to reveal affirmation letter by letter
+    function revealAffirmation(affirmation) {
+        let index = 0;
+        cardAffirmation.textContent = '';
+        const interval = setInterval(() => {
+            cardAffirmation.textContent += affirmation[index];
+            index++;
+            if (index === affirmation.length) {
+                clearInterval(interval);
+            }
+        }, 100); // Adjust speed of letter reveal here
+    }
 
     // Fade-in effect for the button on page load
     setTimeout(() => {
@@ -41,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
         cardImage.src = selectedCard.image;
         cardName.textContent = selectedCard.name;
         cardDescription.textContent = selectedCard.description;
-        cardAffirmation.textContent = selectedCard.affirmation;
+        cardAffirmation.textContent = ''; // Clear previous affirmation text
 
         // Adjust font size to fit the description
         let fontSize = 18;
@@ -58,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
         cardImage.style.opacity = 0;
         cardName.style.opacity = 0;
         cardDescription.style.opacity = 0;
-        affirmationContainer.style.opacity = 0; // Set initial opacity of affirmation container
+        affirmationContainer.style.opacity = 1; // Ensure container is visible
 
         setTimeout(() => {
             revealButton.style.display = 'none'; // Hide the button
@@ -72,11 +85,11 @@ document.addEventListener('DOMContentLoaded', () => {
                         setTimeout(() => {
                             cardDescription.style.opacity = 1; // Fade in the description
                             setTimeout(() => {
-                                affirmationContainer.style.opacity = 1; // Fade in the affirmation container
-                            }, 20000); // Delay before showing the affirmation
-                        }, 1000); // Adjust delay as needed
-                    }, 20000); // Adjust delay as needed
-                }, 1500); // Adjust delay as needed
+                                revealAffirmation(selectedCard.affirmation); // Reveal affirmation letter by letter
+                            }, 18000); // Delay before showing the affirmation
+                        }, 2000); // Delay before showing the description
+                    }, 20000); // Delay before flipping the card
+                }, 1500); // Delay before showing the name
             }, 500); // Small delay to ensure the display property is set before changing opacity
         }, 500); // Small delay to ensure the button is hidden first
     });
