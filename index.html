@@ -3,17 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weebies</title>
+    <title>Card Reveal</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1 id="title">Healing with the Weebies</h1>
-    <div id="weebie-container">
-        <div id="weebie-image-container">
-            <img id="weebie-image" src="" alt="Weebie Image">
-            <div id="weebie"></div>
+    <h1 id="pageTitle">Healing with the Weebies</h1>
+    <button id="revealButton">Reveal Card</button>
+    <div id="cardContainer">
+        <div class="image-wrapper" id="imageWrapper">
+            <img id="cardImage" src="" alt="Card Image" style="opacity: 0;">
         </div>
-        <button id="pick-weebie">Pick a Weebie</button>
+        <h2 id="cardName" style="opacity: 0;"></h2>
+        <p id="cardDescription" style="opacity: 0;"></p>
     </div>
     <script src="script.js"></script>
 </body>

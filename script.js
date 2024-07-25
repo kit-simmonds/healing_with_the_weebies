@@ -1,42 +1,52 @@
-document.getElementById('pick-weebie').addEventListener('click', function() {
-    const weebieImage = document.getElementById('weebie-image');
-    const weebieText = document.getElementById('weebie');
-    
-    // Example weebie data
-    const weebies = [
-        { name: 'Weebie 1', image: 'images/balance.png' },
-        { name: 'Weebie 2', image: 'images/harmony.png' },
-        { name: 'Weebie 3', image: 'images/peace.png' }
+document.addEventListener('DOMContentLoaded', () => {
+    const cards = [
+        { name: 'Balance', image: 'images/balance.png', description: 'Balance represents the equilibrium between opposing forces. It signifies the importance of finding a harmonious middle ground in all aspects of life. Whether it\'s work and play, rest and activity, or giving and receiving, balance ensures that all elements coexist peacefully. This card encourages you to seek stability and avoid extremes.' },
+        { name: 'Harmony', image: 'images/harmony.png', description: 'Harmony symbolizes the blending of diverse elements to create a pleasing and cohesive whole. It speaks to the beauty of unity and cooperation, whether in relationships, work, or personal endeavors. This card reminds you to cultivate peaceful interactions and appreciate the symphony created when different parts come together in perfect accord.' },
+        // Add more card objects here
     ];
-    
-    // Pick a random weebie
-    const randomWeebie = weebies[Math.floor(Math.random() * weebies.length)];
-    
-    // Update the image and text
-    weebieImage.src = randomWeebie.image;
-    weebieText.textContent = randomWeebie.name;
-    
-    // Log the image source to ensure it's correct
-    console.log('Image source:', weebieImage.src);
-    
-    // Add an error handler to log if the image fails to load
-    weebieImage.onerror = function() {
-        console.error('Failed to load image:', weebieImage.src);
-    };
-    
-    // Remove the fade-in class if it exists
-    weebieImage.classList.remove('fade-in');
-    weebieText.classList.remove('fade-in');
-    
-    // Trigger reflow to restart the animation
-    void weebieImage.offsetWidth;
-    void weebieText.offsetWidth;
-    
-    // Add the fade-in class to start the animation
-    weebieImage.classList.add('fade-in');
-    
-    // Wait for the image to fade in before fading in the text
-    setTimeout(() => {
-        weebieText.classList.add('fade-in');
-    }, 1); // Match this duration to the image fade-in duration
+
+    const revealButton = document.getElementById('revealButton');
+    const cardImage = document.getElementById('cardImage');
+    const cardName = document.getElementById('cardName');
+    const cardDescription = document.getElementById('cardDescription');
+
+    let isImageRevealed = false;
+    let isNameRevealed = false;
+    let isDescriptionRevealed = false;
+
+    revealButton.addEventListener('click', () => {
+        const randomIndex = Math.floor(Math.random() * cards.length);
+        const card = cards[randomIndex];
+
+        // Reset visibility states
+        cardImage.style.opacity = 0;
+        cardName.style.opacity = 0;
+        cardDescription.style.opacity = 0;
+
+        // Update the card content
+        cardImage.src = card.image;
+        cardName.textContent = card.name;
+        cardDescription.textContent = card.description;
+
+        // Reveal image first
+        if (!isImageRevealed) {
+            cardImage.style.opacity = 1;
+            isImageRevealed = true;
+            setTimeout(() => {
+                // Reveal name after image
+                cardName.style.opacity = 1;
+                isNameRevealed = true;
+                setTimeout(() => {
+                    // Reveal description after name
+                    cardDescription.style.opacity = 1;
+                    isDescriptionRevealed = true;
+                }, 1000); // Adjust delay as needed
+            }, 1000); // Adjust delay as needed
+        } else {
+            // Reset the reveal states and perform the reveal again
+            isImageRevealed = false;
+            isNameRevealed = false;
+            isDescriptionRevealed = false;
+        }
+    });
 });
