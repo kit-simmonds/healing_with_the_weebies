@@ -41,13 +41,15 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
             revealButton.style.display = 'none'; // Hide the button
             cardImage.style.display = 'block'; // Show the image container
-            cardImage.style.opacity = 1; // Fade in the image
             setTimeout(() => {
-                cardName.style.opacity = 1; // Fade in the name
+                cardImage.style.opacity = 1; // Fade in the image
                 setTimeout(() => {
-                    cardDescription.style.opacity = 1; // Fade in the description
+                    cardName.style.opacity = 1; // Fade in the name
+                    setTimeout(() => {
+                        cardDescription.style.opacity = 1; // Fade in the description
+                    }, 1000); // Adjust delay as needed
                 }, 1000); // Adjust delay as needed
-            }, 1000); // Adjust delay as needed
+            }, 100); // Small delay to ensure the display property is set before changing opacity
         }, 500); // Small delay to ensure the button is hidden first
     });
 });
