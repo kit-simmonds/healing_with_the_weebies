@@ -6,7 +6,7 @@ body {
     margin: 20px;
     /* background: url('images/background_jwst.png') no-repeat center center fixed;
     background-size: cover; */
-    background: linear-gradient(to bottom, white, rgb(242, 19, 186))
+    /* background: linear-gradient(to bottom, white, rgb(242, 19, 186)) */
 }
 
 #pageTitle {
@@ -112,5 +112,5 @@ body {
     margin-top: 20px;
     opacity: 0; /* Initially hidden */
     transition: opacity 1s;
-    color: white;
+    color: rgb(255, 0, 166);
 }
