@@ -16,7 +16,12 @@
         </div>
         <p id="cardDescription" style="opacity: 0;"></p>
     </div>
-    <audio src="heal.mp3" autoplay loop></audio>
+    <audio id="backgroundMusic" src="heal.mp3" loop></audio>
+    <script>
+        document.getElementById('revealButton').addEventListener('click', function() {
+            document.getElementById('backgroundMusic').play();
+        });
+    </script>
     <script src="script.js"></script>
 </body>
 </html>
