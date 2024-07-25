@@ -15,7 +15,6 @@ document.addEventListener('DOMContentLoaded', () => {
             image: 'images/courage.png', 
             description: 'Courage is the strength to face fears and overcome obstacles, even when the outcome is uncertain. It represents the inner fortitude required to take risks and stand up for what you believe in. This card encourages you to embrace bravery in your challenges and forge ahead with confidence.' 
         }
-        // Add more cards here as needed
     ];
 
     const revealButton = document.getElementById('revealButton');
@@ -27,28 +26,28 @@ document.addEventListener('DOMContentLoaded', () => {
         const randomIndex = Math.floor(Math.random() * cards.length);
         const card = cards[randomIndex];
 
-        // Reset visibility states
+        // Hide the button and set up the image and text
+        revealButton.style.opacity = 0;
         cardImage.style.opacity = 0;
         cardName.style.opacity = 0;
         cardDescription.style.opacity = 0;
 
-        // Hide the card content and update it after the previous content has been hidden
-        setTimeout(() => {
-            cardImage.src = card.image;
-            cardName.textContent = card.name;
-            cardDescription.textContent = card.description;
+        // Update the card content
+        cardImage.src = card.image;
+        cardName.textContent = card.name;
+        cardDescription.textContent = card.description;
 
-            // Show image and then reveal attributes
-            cardImage.style.display = 'block'; // Make the image visible
+        // Reveal the image and then the text
+        setTimeout(() => {
+            revealButton.style.display = 'none'; // Hide the button
+            cardImage.style.display = 'block'; // Show the image container
+            cardImage.style.opacity = 1; // Fade in the image
             setTimeout(() => {
-                cardImage.style.opacity = 1; // Reveal image
+                cardName.style.opacity = 1; // Fade in the name
                 setTimeout(() => {
-                    cardName.style.opacity = 1; // Reveal name
-                    setTimeout(() => {
-                        cardDescription.style.opacity = 1; // Reveal description
-                    }, 1500); // Adjust delay as needed
-                }, 1500); // Adjust delay as needed
-            }, 100); // Small delay to ensure the image starts to show
-        }, 1000); // Delay to ensure the previous content has been hidden
+                    cardDescription.style.opacity = 1; // Fade in the description
+                }, 1000); // Adjust delay as needed
+            }, 1000); // Adjust delay as needed
+        }, 500); // Small delay to ensure the button is hidden first
     });
 });
