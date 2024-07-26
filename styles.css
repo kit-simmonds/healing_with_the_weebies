@@ -118,7 +118,7 @@ body {
 }
 
 #revealButton.fade-in {
-    animation: fadeIn 2s forwards; /* Trigger fade-in animation */
+    animation: fadeIn 10s forwards; /* Trigger fade-in animation */
 }
 
 #revealButton:hover {
@@ -148,7 +148,7 @@ body {
     font-size: 24px;
     text-align: center;
     opacity: 0;
-    transition: opacity 20s; /* Increase the duration here */
+    transition: opacity 15s; /* Increase the duration here */
 }
 
 #cardDescription {
